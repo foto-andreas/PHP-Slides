@@ -1,0 +1,74 @@
+* {
+    background-color: #606060;
+    font-family: Arial, Helvetica, sans;
+}
+
+h2 {
+    color: white;
+    margin-top: 20pt;
+    margin-left: 20pt;
+}
+
+.list {
+    background-color: #000;
+    margin: 10px;
+    padding-left: 0px;
+    display: block;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.list li {
+    float: left;
+    width: 250px;
+    height: 250px;
+    list-style-type: none;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+.content-image {
+    max-height: 230px;
+    max-width: 230px;
+    width: auto;
+    height: auto;
+}
+
+.large {
+    # max-height: min(90vh, 90vw);
+    # max-width: min(90vh, 90vw);
+    max-height: 85vh;
+    max-width: 90vw;
+    width: auto;
+    height: auto;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #202020;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+}
