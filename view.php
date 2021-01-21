@@ -15,7 +15,15 @@ function on(arg) {
   setTimeout(() => {
     document.getElementById("list").style.display = "none";
     document.getElementById("overlay").style.display = "flex";
-    document.getElementById("image").src = arg;
+    if (arg.endsWith('.jpg')) {
+      document.getElementById("image").src = arg;
+      document.getElementById("image").style.display = 'flex';
+      document.getElementById("video").style.display = 'none';
+    } else {
+      document.getElementById("video").src = arg;
+      document.getElementById("video").style.display = 'flex';
+      document.getElementById("image").style.display = 'none';
+    }
     window.asScrollHash = arg;
     cur = arg;
   });
@@ -37,6 +45,7 @@ function off() {
   document.getElementById("overlay").style.display = "none";
   document.getElementById("list").style.display = "block";
   document.getElementById("image").src = '';
+  document.getElementById("video").src = '';
   document.getElementById(window.asScrollHash).scrollIntoView();;
   cur = "";
 }
@@ -56,7 +65,10 @@ function setNext(a, b) {
   <div class="center">
     <div onclick="onPrev()" class="pfeil pfeilLinks"></div>
   </div>
-  <img onclick="off()" id="image" class="large">
+  <div class="fullwidth">
+    <img onclick="off()" id="image" class="large">
+    <video onclick="off()" controls="true" id="video" class="large">
+  </div>
   <div class="center">
     <div onclick="onNext()" class="pfeil pfeilRechts"></div>
   </div>
@@ -67,7 +79,10 @@ function setNext(a, b) {
       $images = [];
       $last = "";
       $i = 0;
-      foreach (glob("*.jpg") as $f) {
+      function endsWith($haystack, $needle) {
+        return substr_compare($haystack, $needle, -strlen($needle)) === 0;
+      }
+      foreach (glob("*.{jpg,mp4}", GLOB_BRACE) as $f) {
         $images[$i++] = $f;
         echo "<script>setPrev('" . $f . "','" . $last . "');</script>\n";
         echo "<script>setNext('" . $last . "','" . $f . "');</script>\n";
@@ -75,8 +90,12 @@ function setNext(a, b) {
       }
       echo "<script>setNext('" . $last . "','');</script>\n";
       foreach ($images as $f) {
+        $extra = "";
+        if (endsWith($f, ".mp4")) {
+          $extra = ".jpg";
+        }
         echo "<li class=\"image\" id=\"" . $f . "\" onclick=\"on('" . $f . "')\">\n";
-        echo "  <img class=\"content-image\" src=\"thumbs/" . $f . "\">\n";
+        echo "  <img class=\"content-image\" src=\"thumbs/" . $f . $extra . "\">\n";
         echo "</li>\n";
       }
     ?>

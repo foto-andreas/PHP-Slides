@@ -51,6 +51,11 @@ ul {
     margin: auto;
 }
 
+.fullwidth {
+    width: 100%;
+    background-color: transparent;
+}
+
 #overlay {
     position: fixed;
     /* Sit on top of the page content */
