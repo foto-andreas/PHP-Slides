@@ -62,8 +62,8 @@ function setNext(a, b) {
   </div>
 </div>
 <div class="list" width="100%">
-    <ul id="list">
-<?php
+  <ul id="list">
+    <?php
       $images = [];
       $last = "";
       $i = 0;
@@ -75,12 +75,12 @@ function setNext(a, b) {
       }
       echo "<script>setNext('" . $last . "','');</script>\n";
       foreach ($images as $f) {
-          echo "<li class=\"image\" id=\"" . $f . "\" onclick=\"on('" . $f . "')\">\n";
-          echo "  <img class=\"content-image\" src=\"thumbs/" . $f . "\">\n";
-          echo "</li>\n";
+        echo "<li class=\"image\" id=\"" . $f . "\" onclick=\"on('" . $f . "')\">\n";
+        echo "  <img class=\"content-image\" src=\"thumbs/" . $f . "\">\n";
+        echo "</li>\n";
       }
-?>
-    </ul>
+    ?>
+  </ul>
 </div>
 </body>
 </html>
