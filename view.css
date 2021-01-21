@@ -41,8 +41,6 @@ ul {
 }
 
 .large {
-    # max-height: min(90vh, 90vw);
-    # max-width: min(90vh, 90vw);
     max-height: 85vh;
     max-width: 90vw;
     width: auto;
@@ -50,6 +48,7 @@ ul {
     border-width: 3px;
     border-style: solid;
     border-color: #202020;
+    margin: auto;
 }
 
 #overlay {
@@ -71,4 +70,27 @@ ul {
 .description {
   background: rgba(29, 106, 154, 0.72);
   color: #fff;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+}
+
+
+.pfeil {
+    width: 60px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+
+.pfeilLinks {
+    background-image: url(PfeilLinks.svg);
+}
+
+.pfeilRechts {
+    background-image: url(PfeilRechts.svg);
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Vectornator for iOS (http://vectornator.io/) --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" viewBox="0 0 40 80">
+<metadata>
+<vectornator:setting key="DimensionsVisible" value="1"/>
+<vectornator:setting key="SnapToGrid" value="0"/>
+<vectornator:setting key="SnapToPoints" value="0"/>
+<vectornator:setting key="GuidesVisible" value="1"/>
+<vectornator:setting key="RulersVisible" value="1"/>
+<vectornator:setting key="SnapToEdges" value="0"/>
+<vectornator:setting key="DisplayWhiteBackground" value="0"/>
+<vectornator:setting key="SnapToGuides" value="1"/>
+<vectornator:setting key="GridSpacing" value="36"/>
+<vectornator:setting key="Units" value="Pixels"/>
+<vectornator:setting key="DynamicGuides" value="0"/>
+<vectornator:setting key="New" value="1"/>
+</metadata>
+<defs/>
+<g id="Ebene 1" vectornator:layerName="Ebene 1">
+<path d="M37.8726+77.8142C39.0747+77.7206+39.8585+76.5401+39.8585+74.4399L39.8585+73.412C39.8585+69.9612+37.7147+65.3665+35.0701+63.1496L12.2006+43.9784C9.55603+41.7615+9.55848+38.17+12.2061+35.9567L35.0646+16.8476C37.7122+14.6343+39.8585+10.0425+39.8585+6.59168L39.8585+5.56382C39.8585+2.11295+37.7443+1.14735+35.1362+3.4071L4.86382+29.6363C2.25575+31.8961+0.141486+36.5254+0.141486+39.9763L0.141486+40.1025C0.141486+43.5534+2.25773+48.1805+4.86824+50.4374L35.1318+76.6017" opacity="1" fill="#000000"/>
+</g>
+</svg>
