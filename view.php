@@ -95,7 +95,7 @@ function setNext(a, b) {
           $extra = ".jpg";
         }
         echo "<li class=\"image\" id=\"" . $f . "\" onclick=\"on('" . $f . "')\">\n";
-        echo "  <img class=\"content-image\" src=\"thumbs/" . $f . $extra . "\">\n";
+        echo "  <img title=\"$f\" class=\"content-image\" src=\"thumbs/" . $f . $extra . "\">\n";
         echo "</li>\n";
       }
     ?>
