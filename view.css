@@ -5,8 +5,8 @@
 
 h2 {
     color: white;
-    margin-top: 20pt;
-    margin-left: 20pt;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .list {
@@ -41,14 +41,14 @@ ul {
 }
 
 .large {
-    max-height: 85vh;
-    max-width: 90vw;
     width: auto;
+    max-width: 90vw;
     height: auto;
+    max-height: 85vh;
+    margin: auto;
     border-width: 3px;
     border-style: solid;
     border-color: #202020;
-    margin: auto;
 }
 
 .fullwidth {
@@ -85,17 +85,20 @@ ul {
 }
 
 .center {
-    display: flex;
+    width: 30px;
+    margin: 5px;
+    display: block;
     align-items: center;
-    margin: 15px;
 }
 
 .pfeil {
-    width: 60px;
-    height: 100px;
+    height: 80px;
+    width: auto;
+    min-width: 10px;
+    margin: 5px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: auto;
 }
 
 .pfeilLinks {
