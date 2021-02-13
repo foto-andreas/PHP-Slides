@@ -82,7 +82,7 @@ function setNext(a, b) {
       function endsWith($haystack, $needle) {
         return substr_compare($haystack, $needle, -strlen($needle)) === 0;
       }
-      foreach (glob("*.{jpg,jpeg,png,mp4,JPG,JPEG,PNG,MP4}", GLOB_BRACE) as $f) {
+      foreach (glob("images/*.{jpg,jpeg,png,mp4,JPG,JPEG,PNG,MP4}", GLOB_BRACE) as $f) {
         $images[$i++] = $f;
         echo "<script>setPrev('" . $f . "','" . $last . "');</script>\n";
         echo "<script>setNext('" . $last . "','" . $f . "');</script>\n";
@@ -94,8 +94,9 @@ function setNext(a, b) {
         if (endsWith($f, ".mp4") || endsWith($f, ".MP4")) {
           $extra = ".jpg";
         }
-        echo "<li class=\"image\" id=\"" . $f . "\" onclick=\"on('" . $f . "')\">\n";
-        echo "  <img title=\"$f\" class=\"content-image\" src=\"thumbs/" . $f . $extra . "\">\n";
+        $b = basename($f);
+        echo "<li class=\"image\" id=\"" . $b . "\" onclick=\"on('" . $f . "')\">\n";
+        echo "  <img title=\"$b\" class=\"content-image\" src=\"thumbs/" . $b . $extra . "\">\n";
         echo "</li>\n";
       }
     ?>
