@@ -15,14 +15,14 @@ function on(arg) {
   setTimeout(() => {
     document.getElementById("list").style.display = "none";
     document.getElementById("overlay").style.display = "flex";
-    if (arg.endsWith('.jpg')) {
-      document.getElementById("image").src = arg;
-      document.getElementById("image").style.display = 'flex';
-      document.getElementById("video").style.display = 'none';
-    } else {
+    if (arg.endsWith('.mp4') || arg.endsWith('MP4')) {
       document.getElementById("video").src = arg;
       document.getElementById("video").style.display = 'flex';
       document.getElementById("image").style.display = 'none';
+    } else {
+      document.getElementById("image").src = arg;
+      document.getElementById("image").style.display = 'flex';
+      document.getElementById("video").style.display = 'none';
     }
     window.asScrollHash = arg;
     cur = arg;
