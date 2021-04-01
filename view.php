@@ -15,7 +15,7 @@ function on(arg) {
   setTimeout(() => {
     document.getElementById("list").style.display = "none";
     document.getElementById("overlay").style.display = "flex";
-    if (arg.endsWith('.mp4') || arg.endsWith('MP4')) {
+    if (arg.endsWith('.mp4.jpg') || arg.endsWith('.MP4.jpg')) {
       document.getElementById("video").src = arg;
       document.getElementById("video").style.display = 'flex';
       document.getElementById("image").style.display = 'none';
