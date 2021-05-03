@@ -67,7 +67,7 @@ function setNext(a, b) {
   </div>
   <div class="fullwidth">
     <img onclick="off()" id="image" class="large">
-    <video onclick="off()" controls="true" id="video" class="large" autoplay playsinline loop>
+    <video onclick="off()" controls="true" id="video" class="large" autoplay playsinline loop muted>
   </div>
   <div class="center">
     <div onclick="onNext()" class="pfeil pfeilRechts"></div>
