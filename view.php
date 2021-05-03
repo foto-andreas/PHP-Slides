@@ -82,7 +82,9 @@ function setNext(a, b) {
       function endsWith($haystack, $needle) {
         return substr_compare($haystack, $needle, -strlen($needle)) === 0;
       }
-      foreach (glob("images/*.{jpg,jpeg,png,mp4,JPG,JPEG,PNG,MP4}", GLOB_BRACE) as $f) {
+      $files = glob("images/*.{jpg,jpeg,png,mp4,JPG,JPEG,PNG,MP4}", GLOB_BRACE);
+      natsort($files);
+      foreach ($files as $f) {
         $images[$i++] = $f;
         echo "<script>setPrev('" . $f . "','" . $last . "');</script>\n";
         echo "<script>setNext('" . $last . "','" . $f . "');</script>\n";
