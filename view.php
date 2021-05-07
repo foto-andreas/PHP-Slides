@@ -11,6 +11,19 @@ var cur = "";
 var prev = [];
 var next = [];
 
+document.addEventListener('keydown', function (event) {
+  console.log("KEY", event.key);
+  if (event.key === 'ArrowRight') {
+    onNext();
+  }
+  if (event.key === 'ArrowLeft') {
+    onPrev();
+  }
+  if (event.key === 'Escape') {
+    off();
+  }
+});
+
 function on(arg) {
   setTimeout(() => {
     document.getElementById("list").style.display = "none";
