@@ -11,17 +11,27 @@ var cur = "";
 var prev = [];
 var next = [];
 
-document.addEventListener('keydown', function (event) {
-  console.log("KEY", event.key);
-  if (event.key === 'ArrowRight') {
-    onNext();
+document.addEventListener('keydown', (event) => {
+  if (event.defaultPrevented) {
+    return;
   }
-  if (event.key === 'ArrowLeft') {
-    onPrev();
+  switch (event.key) {
+    case 'Right':
+    case 'ArrowRight':
+      onNext();
+      break
+    case 'Left':
+    case 'ArrowLeft':
+      onPrev();
+      break;
+    case 'Esc':
+    case 'Escape':
+      off();
+      break;
+    default:
+      return;
   }
-  if (event.key === 'Escape') {
-    off();
-  }
+  event.preventDefault();
 });
 
 function on(arg) {
