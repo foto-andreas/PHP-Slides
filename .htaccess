@@ -1,2 +1,2 @@
 RedirectMatch 404 /\.git
-
+DirectoryIndex view.php
