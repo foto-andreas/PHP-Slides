@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="view.css">
+<link rel="script" href="swiped-events.js">
 <title><?php echo basename(getcwd()); ?></title>
 </head>
 
@@ -31,6 +32,22 @@ document.addEventListener('keydown', (event) => {
     default:
       return;
   }
+  event.preventDefault();
+});
+
+document.addEventListener('swiped-left', (event) => {
+  if (event.defaultPrevented) {
+    return;
+  }
+  onNext();
+  event.preventDefault();
+});
+
+document.addEventListener('swiped-right', (event) => {
+  if (event.defaultPrevented) {
+    return;
+  }
+  onPrev();
   event.preventDefault();
 });
 
