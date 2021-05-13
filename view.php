@@ -36,6 +36,8 @@ document.addEventListener('keydown', (event) => {
 var startX = null;
 var startY = null;
 
+// thanks for touch-events to https://stackoverflow.com/users/7852/givanse
+
 document.addEventListener('touchstart', (event) => {
   if (event.defaultPrevented) {
     return;
