@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="view.css">
-<link rel="script" href="swiped-events.js">
+<link rel="stylesheet" href="view.css"/>
+<script src="swiped-events.js"/>
 <title><?php echo basename(getcwd()); ?></title>
 </head>
 
