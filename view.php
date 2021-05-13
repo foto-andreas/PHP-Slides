@@ -2,12 +2,10 @@
 <html>
 <head>
 <link rel="stylesheet" href="view.css"/>
-<script src="swiped-events.js"/>
 <title><?php echo basename(getcwd()); ?></title>
 </head>
 
 <script>
-
 var cur = "";
 var prev = [];
 var next = [];
@@ -35,19 +33,39 @@ document.addEventListener('keydown', (event) => {
   event.preventDefault();
 });
 
-document.addEventListener('swiped-left', (event) => {
+var startX = null;
+var startY = null;
+
+document.addEventListener('touchstart', (event) => {
   if (event.defaultPrevented) {
     return;
   }
-  onNext();
+  startX = event.touches[0].clientX;
+  startY = event.touches[0].clientY;
   event.preventDefault();
 });
 
-document.addEventListener('swiped-right', (event) => {
-  if (event.defaultPrevented) {
+document.addEventListener('touchmove', (event) => {
+  if ((!startX && !startY) || event.defaultPrevented) {
     return;
   }
-  onPrev();
+  var xDiff = startX - event.touches[0].clientX;
+  var yDiff = startY - event.touches[0].clientY;
+  if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+    if ( xDiff > 0 ) {
+      onNext(); 
+    } else {
+      onPrev();
+    }                       
+  } else {
+    if ( yDiff > 0 ) {
+      /* up swipe */ 
+    } else { 
+      /* down swipe */
+    }                                                                 
+  }
+  startX = null;
+  startY = null;
   event.preventDefault();
 });
 
@@ -99,7 +117,7 @@ function setNext(a, b) {
 
 </script>
 
-<body>
+<body data-swipe-threshold="100" data-swipe-timeout="250">
 <h2><?php echo basename(getcwd());?></h2>
 <div id="overlay" class="overlay">
   <div class="center">
