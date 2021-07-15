@@ -17,7 +17,7 @@ for i in images/*.{jpg,jpeg,png,JPG,JPEG,PNG}; do
   fi
 done
 
-for i in *.{mp4,MP4}; do
+for i in images/*.{mp4,MP4,mov,MOV}; do
   if [ -f $i ]; then
     b=$(basename $i)
     if [ ! -f thumbs/$b.jpg ]; then
