@@ -75,7 +75,7 @@ function on(arg) {
   setTimeout(() => {
     document.getElementById("list").style.display = "none";
     document.getElementById("overlay").style.display = "flex";
-    if (arg.endsWith('.mp4') || arg.endsWith('.MP4')) {
+    if (arg.endsWith('.mov') || arg.endsWith('.MOV') || arg.endsWith('.mp4') || arg.endsWith('.MP4')) {
       document.getElementById("video").src = arg;
       document.getElementById("video").style.display = 'flex';
       document.getElementById("image").style.display = 'none';
@@ -142,7 +142,7 @@ function setNext(a, b) {
       function endsWith($haystack, $needle) {
         return substr_compare($haystack, $needle, -strlen($needle)) === 0;
       }
-      $files = glob("images/*.{jpg,jpeg,png,mp4,JPG,JPEG,PNG,MP4}", GLOB_BRACE);
+      $files = glob("images/*.{jpg,jpeg,png,mp4,mov,JPG,JPEG,PNG,MP4,MOV}", GLOB_BRACE);
       natsort($files);
       foreach ($files as $f) {
         $images[$i++] = $f;
@@ -153,7 +153,7 @@ function setNext(a, b) {
       echo "<script>setNext('" . $last . "','');</script>\n";
       foreach ($images as $f) {
         $extra = "";
-        if (endsWith($f, ".mp4") || endsWith($f, ".MP4")) {
+        if (endsWith($f, ".mp4") || endsWith($f, ".MP4") || endsWith($f, ".mov") || endsWith($f, ".MOV")) {
           $extra = ".jpg";
         }
         $b = basename($f);
