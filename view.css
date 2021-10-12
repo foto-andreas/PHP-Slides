@@ -22,7 +22,7 @@ ul {
 
 .list li {
     float: left;
-    width: 250px;
+    width: 290px;
     height: 250px;
     list-style-type: none;
     background-color: #222;
@@ -31,6 +31,15 @@ ul {
     justify-content: center;
     margin: 5px;
     border-radius: 8px;
+}
+
+li.selected {
+    background-color: #AAA;
+}
+
+input.cb {
+    min-width: 30px;
+    min-height: 30px;
 }
 
 .content-image {

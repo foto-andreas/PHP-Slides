@@ -10,6 +10,26 @@ var cur = "";
 var prev = [];
 var next = [];
 
+var myHeaders = new Headers({
+    'Content-Type': 'application/json'
+});
+
+function sel(name) {
+  var el = document.getElementById("images/" + name);
+  var s = el.classList.contains("selected")
+  fetch('https://schrell.de/api/sel', { "method": "POST", "headers": myHeaders, "body": JSON.stringify({ name, "selected": !s }) })
+	.then((response) => {
+		response.json().then(myJson => {
+			if (s) {
+				el.classList.remove("selected");
+			} else {
+                        	el.classList.add("selected");
+			}
+		});
+	})
+	.catch(() => {});
+}
+
 document.addEventListener('keydown', (event) => {
   if (event.defaultPrevented) {
     return;
@@ -55,16 +75,16 @@ document.addEventListener('touchmove', (event) => {
   var yDiff = startY - event.touches[0].clientY;
   if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
     if ( xDiff > 0 ) {
-      onNext(); 
+      onNext();
     } else {
       onPrev();
-    }                       
+    }
   } else {
     if ( yDiff > 0 ) {
-      /* up swipe */ 
-    } else { 
+      /* up swipe */
+    } else {
       /* down swipe */
-    }                                                                 
+    }
   }
   startX = null;
   startY = null;
@@ -144,12 +164,14 @@ function setNext(a, b) {
       }
       $files = glob("images/*.{jpg,jpeg,png,mp4,mov,JPG,JPEG,PNG,MP4,MOV}", GLOB_BRACE);
       natsort($files);
+      echo "<script>";
       foreach ($files as $f) {
         $images[$i++] = $f;
-        echo "<script>setPrev('" . $f . "','" . $last . "');</script>\n";
-        echo "<script>setNext('" . $last . "','" . $f . "');</script>\n";
+        echo "setPrev('" . $f . "','" . $last . "');\n";
+        echo "setNext('" . $last . "','" . $f . "');\n";
         $last = $f;
       }
+      echo "</script>\n";
       echo "<script>setNext('" . $last . "','');</script>\n";
       foreach ($images as $f) {
         $extra = "";
@@ -157,12 +179,46 @@ function setNext(a, b) {
           $extra = ".jpg";
         }
         $b = basename($f);
-        echo "<li class=\"image\" id=\"" . $f . "\" onclick=\"on('" . $f . "')\">\n";
-        echo "  <img title=\"$b\" class=\"content-image\" src=\"thumbs/" . $b . $extra . "\">\n";
+        echo "<li class=\"image\" id=\"" . $f . "\">\n";
+        echo "  <input id=\"cb/" . $b . "\" type=\"checkbox\" class=\"cb\" onclick=\"sel('" . $b . "')\"></checkbox>";
+        echo "  <img loading=\"lazy\" onclick=\"on('" . $f . "')\" title=\"$b\" class=\"content-image\" src=\"thumbs/" . $b . $extra . "\">\n";
         echo "</li>\n";
       }
     ?>
   </ul>
 </div>
 </body>
+
+<script>
+  function update() {
+    fetch('https://schrell.de/api/sel')
+      .then(response => {
+        response.json()
+          .then(myJson => {
+            myJson.forEach(e => {
+              var el = document.getElementById("images/" + e.name)
+              if (el) {
+                if (e.selected) {
+                  el.classList.add("selected");
+                } else {
+                  el.classList.remove("selected");
+              }
+              var cb = document.getElementById("cb/" + e.name)
+              if (cb)
+                cb.checked = e.selected;
+              }
+            });
+          })
+          .catch(err => {
+            console.log("parse error", err);
+          });
+      })
+      .catch(err => {
+        console.log("error in fetch", err);
+      });
+  }
+  update();
+  setInterval(() => update(), 5000);
+</script>
+
 </html>
