@@ -158,7 +158,7 @@ function setNext(a, b) {
         }
         $b = basename($f);
         echo "<li class=\"image\" id=\"" . $f . "\" onclick=\"on('" . $f . "')\">\n";
-        echo "  <img title=\"$b\" class=\"content-image\" src=\"thumbs/" . $b . $extra . "\">\n";
+        echo "  <img loading=\"lazy\" title=\"$b\" class=\"content-image\" src=\"thumbs/" . $b . $extra . "\">\n";
         echo "</li>\n";
       }
     ?>
