@@ -8,5 +8,9 @@ Dynamic Image Slide View
 ```bash
 ./mkthumbs.sh [--replace]
 ```
+or to work in parallel with six threads
+```bash
+./mkthumbs_parallel.sh [--replace]
+```
 * if you give `--replace` all thumbs are recreated, otherwise thumbs are created only for new files
 * browse to the image folder url
