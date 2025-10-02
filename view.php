@@ -55,16 +55,16 @@ document.addEventListener('touchmove', (event) => {
   var yDiff = startY - event.touches[0].clientY;
   if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
     if ( xDiff > 0 ) {
-      onNext(); 
+      onNext();
     } else {
       onPrev();
-    }                       
+    }
   } else {
     if ( yDiff > 0 ) {
-      /* up swipe */ 
-    } else { 
+      /* up swipe */
+    } else {
       /* down swipe */
-    }                                                                 
+    }
   }
   startX = null;
   startY = null;
@@ -83,6 +83,7 @@ function on(arg) {
       document.getElementById("image").src = arg;
       document.getElementById("image").style.display = 'flex';
       document.getElementById("video").style.display = 'none';
+      document.getElementById("download").href = arg.replace("images", "full");
     }
     window.asScrollHash = arg;
     cur = arg;
@@ -126,8 +127,11 @@ function setNext(a, b) {
     <div onclick="onPrev()" class="pfeil pfeilLinks"></div>
   </div>
   <div class="fullwidth">
-    <img onclick="off()" id="image" class="large">
-    <video onclick="off()" controls="true" id="video" class="large" autoplay playsinline loop muted>
+    <div>
+      <img onclick="off()" id="image" class="large"></img>
+      <video onclick="off()" controls="true" id="video" class="large" autoplay playsinline loop muted></video>
+      <a id="download" color="white" download>Download full size</a>
+    </div>
   </div>
   <div class="center">
     <div onclick="onNext()" class="pfeil pfeilRechts"></div>

@@ -108,3 +108,7 @@ ul {
 .pfeilRechts {
     background-image: url(PfeilRechts.svg);
 }
+
+a:link {
+    color: white;
+}
